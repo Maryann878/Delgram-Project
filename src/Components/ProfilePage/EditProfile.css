@@ -1,0 +1,15 @@
+.EditProfile-container {
+    padding: 20px 10px;
+    width: 70%;
+}
+.profile_pic_container{
+    height: 400px;
+}
+.img-responsive {
+    border-radius: 0 !important;
+    margin-top: 0px;
+}
+
+form {
+    width: 60%;
+}

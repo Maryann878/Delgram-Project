@@ -1,0 +1,30 @@
+[33mcommit 3aaafd506d6f9f712be4218f73393ee8bd37bab8[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: 5b14890 e83c795
+Author: aneal250 <anaelennaemeka@gmail.com>
+Date:   Thu Aug 26 12:25:40 2021 +0100
+
+    Merge branch 'master' of https://github.com/Aneal250/Delgram into master
+
+[33mcommit 5b14890e06d931a2c71a2c7fb7bb0dbebd8c096e[m
+Author: aneal250 <anaelennaemeka@gmail.com>
+Date:   Thu Aug 26 12:24:43 2021 +0100
+
+    Commit
+
+[33mcommit e83c795c2093382ec1ce835e171a47e4a49823ca[m
+Author: Anaele emekaH <62405019+Aneal250@users.noreply.github.com>
+Date:   Wed Aug 25 23:17:54 2021 +0100
+
+    Update README.md
+
+[33mcommit e7127d089f84aeacd40a559e706cad7374273d56[m
+Author: aneal250 <anaelennaemeka@gmail.com>
+Date:   Wed Aug 25 23:09:18 2021 +0100
+
+    First Push
+
+[33mcommit 81e31c07b0faa5a544b6d8095e9c3d152eb8857f[m
+Author: aneal250 <anaelennaemeka@gmail.com>
+Date:   Tue Aug 24 16:03:08 2021 +0100
+
+    Initialize project using Create React App
