@@ -15,7 +15,7 @@ function ProfilePost({ posts }) {
                     <div className="col-md-10">
                         <div className="d-flex flex-row">
                             <div className="col-6  d-flex justify-content-start">
-                                <h4 className="users_post_name">MS_CASSE</h4>
+                                <h4 className="users_post_name">{post.title}</h4>
                                 <img src={`${imgPath}./img/feed_icon_blue_tick.png`} alt="smiley" className="feed_icon" />
                             </div>
                             <div className="col-6 d-flex justify-content-end">
