@@ -19,7 +19,7 @@ function Navigation() {
                     </div>
                </div>
                <div className="col-md-4 colum_nav d-flex flex-row">
-               <Link to="/"><img src={`${imgPath}./img/home_icon.png`} alt="" className="icon_thumbnail" /></Link>
+               <Link to="/home"><img src={`${imgPath}./img/home_icon.png`} alt="" className="icon_thumbnail" /></Link>
                            <Link><img src={`${imgPath}./img/vector_icon.svg`} alt="" className="icon_thumbnail" /></Link>
                            <Link><img src={`${imgPath}./img/notification_icon.png`} alt="" className="icon_thumbnail" /></Link>
                            <Link><img src={`${imgPath}./img/add-story.png`} alt="" className="icon_thumbnail" /></Link>

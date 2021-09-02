@@ -1,10 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './EditProfile.css'
 import Navigation from "../Pages/Navigation"
+import axios from 'axios';
 
 const imgPath = process.env.PUBLIC_URL;
 
 function EditProfile() {
+    const [imageFile, setImageFile] = useState('')
+
+    const handleImageChange =  (e) => {
+        setImageFile(e.target.files[0])
+        
+    }
+    const handleImageUpload = async () => {
+        try {
+            let token = JSON.parse(localStorage.token)
+            // let myHeaders = new Headers();
+            // myHeaders.append("Authorization", token);
+            let formdata = new FormData();
+
+            formdata.append("images", imageFile);
+
+        
+            let res = await axios.post('https://ict-del-gram-app.herokuapp.com/api/users/611fb2ee270bfd00164ebd5f', formdata, {
+                headers: {
+                    'Authorization': token
+                }
+            })
+            console.log(res);
+        } catch (err) {
+            console.log(err);
+        }
+    }
     return (
         <div className="container EditProfile-container">
                             <Navigation/>
@@ -15,6 +42,9 @@ function EditProfile() {
                     </div>
                     <div>
                         <img  src={`${imgPath}./img/Profile.jpg`} alt="" className="profile_img" />
+
+                        <input type="file" onChange={handleImageChange} />
+                        <button onClick={handleImageUpload}>Upload Picture</button>
                     </div>
                     <div className="profile_name">
                         <h1>Jasmine Ben</h1>

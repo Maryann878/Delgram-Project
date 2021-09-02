@@ -16,7 +16,7 @@ function SignUp() {
     const [ email, setEmail] = useState('')
     const [ phoneNumber, setPhoneNumber] = useState('')
     const [ userName, setuserName] = useState('')   
-    const [ stack, setStack] = useState('')
+    const [ stack, setStack] = useState('FrontEnd')
     const [ password, setPassword] = useState('')
 
 
@@ -43,7 +43,7 @@ function SignUp() {
             
           } catch (error) {
             console.error(error);
-            alert ('Please Try Again');
+            alert (error?.response?.data?.message);
           }
         };
       
@@ -88,11 +88,11 @@ function SignUp() {
                                 value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
                             </div>
                             <div className="col-6">
-                                <select id="Stack" class="form-select" value={stack} >
-                                    <option onClick={(e) => setStack(e.target.value)}>FrontEnd</option>
-                                    <option onClick={(e) => setStack(e.target.value)}>Backend</option>
-                                    <option onClick={(e) => setStack(e.target.value)}>Andriod</option>
-                                    <option onClick={(e) => setStack(e.target.value)}>UI/UX</option>
+                                <select id="Stack" class="form-select" value={stack} onChange={(e) => setStack(e.target.valuer)} >
+                                    <option >FrontEnd</option>
+                                    <option >Backend</option>
+                                    <option >Andriod</option>
+                                    <option >UI/UX</option>
                                 </select>
                             </div>
                            

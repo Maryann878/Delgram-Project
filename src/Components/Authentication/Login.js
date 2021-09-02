@@ -26,10 +26,8 @@ function Login() {
               password,
             }
           );
-          console.log(res)
-          let user = res.data.user._id
+          let user = res.data.user
           let token = res.data.token
-          console.log(res.data.user._id);
           localStorage.setItem('user', JSON.stringify(user))
           localStorage.setItem('token', JSON.stringify(token))
           setUser(user);
@@ -38,8 +36,8 @@ function Login() {
           Location.push("/Home")
     
         } catch (error) {
-            alert("Please try again")
-          console.error(error);
+            alert (error?.response?.data?.message);
+
         }
       };
     
