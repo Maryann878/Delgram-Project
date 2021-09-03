@@ -88,7 +88,7 @@ function SignUp() {
                                 value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
                             </div>
                             <div className="col-6">
-                                <select id="Stack" class="form-select" value={stack} onChange={(e) => setStack(e.target.valuer)} >
+                                <select id="Stack" class="form-select" value={stack} onChange={(e) => setStack(e.target.value)} >
                                     <option >FrontEnd</option>
                                     <option >Backend</option>
                                     <option >Andriod</option>

@@ -7,34 +7,66 @@ const imgPath = process.env.PUBLIC_URL;
 
 function EditProfile() {
     const [imageFile, setImageFile] = useState('')
+    const user = JSON.parse(localStorage.getItem('user'))
+    console.log(user)
 
     const handleImageChange =  (e) => {
+        console.log(e.target.files[0])
         setImageFile(e.target.files[0])
         
     }
     const handleImageUpload = async () => {
         try {
             let token = JSON.parse(localStorage.token)
+            const user = JSON.parse(localStorage.getItem('user'))
+            console.log(user, token)
+ 
             // let myHeaders = new Headers();
             // myHeaders.append("Authorization", token);
             let formdata = new FormData();
 
-            formdata.append("images", imageFile);
+            formdata.append("image", imageFile);
+
+            console.log(imageFile)
 
         
-            let res = await axios.post('https://ict-del-gram-app.herokuapp.com/api/users/611fb2ee270bfd00164ebd5f', formdata, {
+            let res = await axios.post(`https://ict-del-gram-app.herokuapp.com/api/users/${user._id}`, formdata, {
                 headers: {
-                    'Authorization': token
+                    'Authorization': token,
+                    'Content-Type': "multipart/form-data"
                 }
             })
-            console.log(res);
+            console.log(res, user);
         } catch (err) {
-            console.log(err);
+            console.log(err.message);
         }
     }
+
+
+
+    const [ firstName, setFirstName] = useState('')
+    const [ lastName, setLastName] = useState('')
+    const [ phoneNumber, setPhoneNumber] = useState('')
+    const [ userName, setuserName] = useState('')   
+    const [ stack, setStack] = useState('FrontEnd')
+    const [ password, setPassword] = useState('')
+
+    // const handleProfileUpdate = async () => {
+    //     try{
+    //         let token = JSON.parse(localStorage.token)
+    //         const user = JSON.parse(localStorage.getItem('user'))
+    //         console.log(user, token)
+    //     }
+    // }
+
+    // let res = await axios.put (`https://ict-del-gram-app.herokuapp.com/api/users/${user._id}`), {}
+
+
+
+
     return (
         <div className="container EditProfile-container">
-                            <Navigation/>
+            <Navigation/>
             <div className="row">
                 <div className="col-md-12">
                     <div className="profile_pic_container">
@@ -57,16 +89,20 @@ function EditProfile() {
                     <h1>Edit Personal Info</h1>
                     <form class=" mx-auto">
                         <div class="mb-3">
-                             <input type="email" class="form-control" id="Name" placeholder="Full Name"/>
+                             <input type="email" class="form-control" id="Name" placeholder="First Name"
+                             value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
                         </div>
                         <div class="mb-3">
-                             <input type="email" class="form-control" id="Name" placeholder="Email"/>
+                             <input type="email" class="form-control" id="Name" placeholder="Last Name"  value={lastName} onChange={(e) => setLastName(e.target.value)}/>
                         </div>
                         <div class="mb-3">
-                             <input type="email" class="form-control" id="Name" placeholder="Full Name"/>
+                             <input type="email" class="form-control" id="Name" placeholder="User Name"   value={userName} onChange={(e) => setuserName(e.target.value)}/>
+                        </div>
+                        <div class="mb-3">
+                             <input type="email" class="form-control"   id="Name" placeholder="Mobile Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
                         </div>
                         <div className="mb-3">
-                        <select id="Stack" class="form-select" placeholder="Stack" >
+                        <select id="Stack" class="form-select" placeholder="Stack" value={stack} onChange={(e) => setStack(e.target.valuer)}>
                                     <option>FrontEnd</option>
                                     <option>Backend</option>
                                     <option>Andriod</option>
@@ -74,7 +110,7 @@ function EditProfile() {
                                 </select>
                         </div>
                         <div class="mb-3">
-                             <input type="email" class="form-control" id="Name" placeholder="Full Name"/>
+                             <input type="email" class="form-control" id="Name" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         </div>
                         <button type="button" class="btn btn-primary">Update</button>
                     </form>
