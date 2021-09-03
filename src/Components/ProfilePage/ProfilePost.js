@@ -1,12 +1,31 @@
+import axios from 'axios';
 import React from 'react'
 import './ProfilePost.css'
 const imgPath = process.env.PUBLIC_URL;
 function ProfilePost({ posts }) {
 
+const handleLike = async (id) => {
+    try {
+        let token = JSON.parse(localStorage.token)
+        let res = await axios.get(`https://ict-del-gram-app.herokuapp.com/api/post/updatelike/${id}`,
+            {
+                headers: {
+                    'Authorization': token,
+                    'Content-Type': "multipart/form-data"
+                }
+            })
+
+        alert('Post liked succesfully');
+
+    } catch (err) {
+        console.log(err.message);
+    }
+}
     return (
+
         <div className="container ProfilePsot-container">
             {posts && posts.map(post => (
-                <div className="row">
+                <div className="row" key={post._id}>
                     <div className="col-md-2">
                         <img src={post?.userid.profilePicture} alt="" className="feed_img" />
                     </div>
@@ -32,18 +51,18 @@ function ProfilePost({ posts }) {
                         <div className="post_img">
                             <img src={post?.Image_url[0]} class="img-responsive" width="100%" />
                         </div>
-                        <h6 className="d-flex justify-content-start"><span><img src={`${imgPath}./img/feed_icon_redheart.svg`} alt="smiley" className="feed_icon" /></span>500</h6>
+                        <h6 className="d-flex justify-content-start align-items-center"><span><img src={`${imgPath}./img/feed_icon_redheart.svg`} alt="smiley" className="feed_icon" /></span>{post.noOflikes}</h6>
                         <div className="d-flex flex-row">
                             <div className="col-6 d-flex justify-content-start">
-                                <img src={`${imgPath}./img/feed_icon_blackheart.svg`} alt="smiley" className="feed_icon" />
+                                <img src={`${imgPath}./img/feed_icon_blackheart.svg`} alt="smiley" className="feed_icon" onClick={() => handleLike(post._id)}/>
                                 <img src={`${imgPath}./img/feed_icon_comment.svg`} alt="gif" className="feed_icon" />
                                 <img src={`${imgPath}./img/feed_icon_retweet.png`} alt="instagram_icon" className="feed_icon" />
                             </div>
-                            <div className="col-6 d-flex justify-content-end" button-container>
+                            <div className="col-6 d-flex justify-content-end">
                                 <img src={`${imgPath}./img/feed_icon_envelop.svg`} alt="video" className="feed_icon" />
                             </div>
                         </div>
-                    <p className="text_time">{post.dateCreated}</p>
+                    <p className="text_time">{(post.dateCreated)}</p>
 
                     </div>
                 </div>

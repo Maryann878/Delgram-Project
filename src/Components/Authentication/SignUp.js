@@ -125,7 +125,7 @@ function SignUp() {
                         </div>
 
                         <div  className="get">
-                           <a href="#">Get App</a>
+                           <a className="get" href="#">Get App</a>
                         </div>
                         <div>
                             <img src={`${imgPath}/img/google_play.png`} alt="SignUP" className="google_img"/>

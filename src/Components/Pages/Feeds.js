@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './Feeds.css'
 const imgPath = process.env.PUBLIC_URL;
 
 function Feeds() {
+  const [user, setUser] = useState('')
 
   const [imgUrl, setImgUrl] = useState('');
   const [imgUpload, setImgUpload] = useState('');
@@ -22,7 +23,6 @@ function Feeds() {
 
   const handleSubmitFeed = () => {
     let token = JSON.parse(localStorage.token)
-console.log(title);
     let formData = new FormData();
     formData.append('images', imgUpload);
     formData.append('title', title);
@@ -37,21 +37,29 @@ console.log(title);
     }
     )
       .then((res) => {
-
-        console.log('Feed Uploaded succesfully');
+        setImgUpload('')
+        setTitle('')
+        alert('Feed Uploaded succesfully');
+        window.location.reload()
+        
       })
       .catch((error) => {
-        console.log(error);
+        alert (error?.response?.data?.message);
       });
   }
 
+  useEffect(() => {
+    let userLocal = JSON.parse(localStorage.user)
 
+    setUser(userLocal)
+
+}, [user.profilePicture])
 
   return (
     <div className="container feed-container">
       <div className="row">
         <div className="col-md-2">
-          <img src={`${imgPath}./img/Profile.jpg`} alt="" className="feed_img" />
+          <img src={user.profilePicture} alt="" className="feed_img" />
         </div>
 
         {/* New Feeds and Text Area */}

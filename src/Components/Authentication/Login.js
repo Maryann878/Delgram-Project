@@ -86,7 +86,7 @@ function Login() {
                     </div>
 
                     <div>
-                       <a href="#">Get App</a>
+                       <a className="get" href="#">Get App</a>
                     </div>
                     <div>
                         <img src={`${imgPath}/img/google_play.png`} alt="SignUP" className="google_img"/>
@@ -95,7 +95,7 @@ function Login() {
                 </div>
             </div>
 
-            <div className="col-md-6">
+            <div  className="col-md-6">
             {/* image Column */}
                 <div className="col-md-6">
                     <img className="signup_img" src={`${imgPath}/img/SignUp.png`} alt="SignUP"/>

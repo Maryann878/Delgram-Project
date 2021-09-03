@@ -15,6 +15,10 @@
     width: 120px;
 }
 
+.get{
+    background-color: transparent;
+}
+
 .btn {
     width: 100% !important;
     border-radius: 5px;

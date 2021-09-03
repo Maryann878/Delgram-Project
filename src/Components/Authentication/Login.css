@@ -33,7 +33,9 @@
 .google_img {
     width: 120px;
 }
-
+.get{
+    background-color: transparent;
+}
 .signup_img{
     height: 600px;
     width: 450px;

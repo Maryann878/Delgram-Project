@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Profile.css'
 import Navigation from "../Pages/Navigation"
 import { Link } from "react-router-dom";
 const imgPath = process.env.PUBLIC_URL;
 
 function Profile() {
+    const [user, setUser] = useState('')
 
+useEffect(() => {
+    let userLocal = JSON.parse(localStorage.user)
+
+    setUser(userLocal)
+
+}, [])
  
     return (
         <div className="container Profile-container">
@@ -19,11 +26,12 @@ function Profile() {
                         <img src={`${imgPath}./img/Profile_Backgroud.png`} class="img-responsive" width="100%" />
                     </div>
                     <div>
-                        <img src={`${imgPath}./img/Profile.jpg`} alt="" className="profile_img" />
+                        <img src={user.profilePicture} alt={user.firstName} className="profile_img" />
 
                     </div>
                     <div className="profile_name">
-                        <h1>Jasmine Ben</h1>
+                        <h1>{user.firstName}</h1>
+                        <h1>{user.lastName}</h1>
                         <p className="text-left">About</p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, libero?
                             Tempore nesciunt libero veritatis aperiam possimus vel animi nam enim earum
@@ -33,15 +41,15 @@ function Profile() {
                         <tbody>
                             <tr>
                                 <td>STACK</td>
-                                <td>UI/UX</td>
+                                <td>{user.stack}</td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td>@UI_UX@gmail.com</td>
+                                <td>{user.email}</td>
                             </tr>
                             <tr>
                                 <td>Phone. NO</td>
-                                <td>08256523565</td>
+                                <td>{user.phoneNumber}</td>
                             </tr>
                         </tbody>
                     </table>

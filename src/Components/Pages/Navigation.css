@@ -10,6 +10,12 @@
     background-color: white!important;
     padding: 10px 5px;
 }
+.out{
+    bottom: 10px;
+    border-bottom: 10px;
+    background-color: white;
+    border: white;
+}
 
 .del_logo {
     width: 91px;

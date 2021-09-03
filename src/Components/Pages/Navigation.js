@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Router, Switch, Route, Link } from "react-router-dom";
 import './Navigation.css'
 const imgPath = process.env.PUBLIC_URL;
 
 function Navigation() {
+    const [user, setUser] = useState('')
+
+  useEffect(() => {
+    let userLocal = JSON.parse(localStorage.user)
+
+    setUser(userLocal)
+
+}, [user.profilePicture])
     return (
        <div className="container Nav-container mx-auto">
            <div className="row m-0">
@@ -23,7 +31,8 @@ function Navigation() {
                            <Link><img src={`${imgPath}./img/vector_icon.svg`} alt="" className="icon_thumbnail" /></Link>
                            <Link><img src={`${imgPath}./img/notification_icon.png`} alt="" className="icon_thumbnail" /></Link>
                            <Link><img src={`${imgPath}./img/add-story.png`} alt="" className="icon_thumbnail" /></Link>
-                           <Link to= "/Profile"><img  src={`${imgPath}./img/Profile.jpg`} alt="" className="Profile_thumbnail" /></Link>
+                           <Link to= "/Profile"><img  src={user.profilePicture} alt="" className="Profile_thumbnail" /></Link>
+                           <Link to= "/"><input type="button" className="out" value="Log Out" placeholder="Log Out"/></Link>
                </div>
                   
                           
