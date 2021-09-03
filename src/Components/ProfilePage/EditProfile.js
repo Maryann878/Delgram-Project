@@ -5,7 +5,22 @@ import axios from 'axios';
 
 const imgPath = process.env.PUBLIC_URL;
 
+
 function EditProfile() {
+    const users = JSON.parse(localStorage.getItem('user'))
+    // console.log(users)
+
+    const [ firstName, setFirstName] = useState('')
+    const [ lastName, setLastName] = useState('')
+    const [ phoneNumber, setPhoneNumber] = useState('')
+    const [ userName, setuserName] = useState('')   
+    const [ stack, setStack] = useState('FrontEnd')
+    const [ email, setEmail] = useState('')
+    const [ password, setPassword] = useState('')
+    //const [  bio, setBio] = useState('')
+    //const [ gender, setGender] = useState('')
+
+
     const [imageFile, setImageFile] = useState('')
     const user = JSON.parse(localStorage.getItem('user'))
     console.log(user)
@@ -42,27 +57,31 @@ function EditProfile() {
         }
     }
 
-
-
-    const [ firstName, setFirstName] = useState('')
-    const [ lastName, setLastName] = useState('')
-    const [ phoneNumber, setPhoneNumber] = useState('')
-    const [ userName, setuserName] = useState('')   
-    const [ stack, setStack] = useState('FrontEnd')
-    const [ password, setPassword] = useState('')
-
-    // const handleProfileUpdate = async () => {
-    //     try{
-    //         let token = JSON.parse(localStorage.token)
-    //         const user = JSON.parse(localStorage.getItem('user'))
-    //         console.log(user, token)
-    //     }
-    // }
-
-    // let res = await axios.put (`https://ict-del-gram-app.herokuapp.com/api/users/${user._id}`), {}
-
-
-
+    const handleProfileUpdate = async () => {
+        try {
+            let token = JSON.parse(localStorage.token)
+            const user = JSON.parse(localStorage.getItem('user'))
+            console.log(user, token)
+            let res = await axios.put(`https://ict-del-gram-app.herokuapp.com/api/users/${user._id}`,
+            {
+                userName : userName,
+                firstName : firstName,
+                lastName :lastName,
+                email : email,
+                phoneNumber : phoneNumber,
+                stack :stack,
+                password : password
+            },
+            { headers: {
+                        'Authorization': token,
+                        'Content-Type': "multipart/form-data"
+                        }
+            })
+            console.log(res, user);
+            } catch (err) {
+        console.log(err.message);
+    }
+    }
 
     return (
         <div className="container EditProfile-container">
@@ -73,13 +92,13 @@ function EditProfile() {
                         <img src={`${imgPath}./img/Profile_Backgroud.png`} class = "img-responsive" width = "100%" />   
                     </div>
                     <div>
-                        <img  src={`${imgPath}./img/Profile.jpg`} alt="" className="profile_img" />
+                        <img  src={users.profilePicture} alt="" className="profile_img" />
 
                         <input type="file" onChange={handleImageChange} />
                         <button onClick={handleImageUpload}>Upload Picture</button>
                     </div>
                     <div className="profile_name">
-                        <h1>Jasmine Ben</h1>
+                        <h1>{users.firstName} {users.lastName}</h1>
                         <p className="text-left">About</p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, libero? 
                         Tempore nesciunt libero veritatis aperiam possimus vel animi nam enim earum 
@@ -89,7 +108,7 @@ function EditProfile() {
                     <h1>Edit Personal Info</h1>
                     <form class=" mx-auto">
                         <div class="mb-3">
-                             <input type="email" class="form-control" id="Name" placeholder="First Name"
+                             <input type="email" class="form-control" id="Name" placeholder={users.firstName}
                              value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
                         </div>
                         <div class="mb-3">
@@ -97,6 +116,9 @@ function EditProfile() {
                         </div>
                         <div class="mb-3">
                              <input type="email" class="form-control" id="Name" placeholder="User Name"   value={userName} onChange={(e) => setuserName(e.target.value)}/>
+                        </div>
+                        <div class="mb-3">
+                             <input type="email" class="form-control" id="Name" placeholder="Email"   value={email} onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         <div class="mb-3">
                              <input type="email" class="form-control"   id="Name" placeholder="Mobile Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
@@ -112,7 +134,7 @@ function EditProfile() {
                         <div class="mb-3">
                              <input type="email" class="form-control" id="Name" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         </div>
-                        <button type="button" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-primary" onClick={handleProfileUpdate}>Update</button>
                     </form>
                     </div>
                 </div>
