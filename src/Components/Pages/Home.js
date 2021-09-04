@@ -24,6 +24,8 @@ function Home() {
         const { data } = await axios.get("https://ict-del-gram-app.herokuapp.com/api/post/allpost",
           { headers })
         setPosts(data.data)
+        console.log(data.data)
+        
 
       } catch (error) {
 

@@ -19,6 +19,7 @@ const handleLike = async (id) => {
 
     } catch (err) {
         console.log(err.message);
+
     }
 }
     return (
@@ -29,6 +30,7 @@ const handleLike = async (id) => {
                     <div className="col-md-2 image">
                         <img src={post?.userid.profilePicture} alt="" className="feed_img" />
                     </div>
+                       
 
                     {/* New Feeds and Text Area */}
                     <div className="col-md-10">

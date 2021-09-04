@@ -1,3 +1,9 @@
+
+*{
+  background-color: #fafafa;
+}
+
+
 .App {
   text-align: center;
   font-family: 'Poppins', sans-serif;
@@ -5,10 +11,11 @@
   line-height: 150%;
   font-size: 16px;
   color: #123250;
+  background-color: #fafafa !important;
 
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -41,4 +48,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
