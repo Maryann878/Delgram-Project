@@ -1,6 +1,12 @@
 .ProfilePsot-container {
     padding: 20px 10px;
     width: 60%;
+   
+
+}
+.containerBaby{
+    margin-top: 126px;
+    margin-bottom: 126px;
 }
 .text {
     text-align: justify;
@@ -33,3 +39,54 @@
     margin: 5px 10px;
     
 }
+
+h4{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; 
+}
+
+h6{
+margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+ }
+ .blue-tick{
+position: relative;
+top: 7px;
+right: 10px;
+max-width: 18px;
+max-height: 18px;
+
+
+}
+.dot{
+    position: relative;
+    top: -8px;
+    } 
+.location{
+color: rgba(18, 50, 80, 0.7);
+padding-bottom: 5px;
+}
+.username{
+  position: relative;
+  /* bottom: 5px; */
+  top: 12px;
+  padding: 0;
+  
+}
+.image{
+position: relative;
+right: -10px;
+padding-left: 5px;
+}
+.postImage{
+    border-radius: 16px ;
+}
+
+.icons{
+    /* position: relative;
+    top: 10px; */
+    margin-top:-20px ;
+}
+
+
