@@ -15,10 +15,10 @@ function EditProfile() {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [userName, setuserName] = useState('')
     const [stack, setStack] = useState('FrontEnd')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    //const [  bio, setBio] = useState('')
-    //const [ gender, setGender] = useState('')
+    //const [email, setEmail] = useState('')
+    //const [password, setPassword] = useState('')
+    const [Bio, setBio] = useState('')
+    const [ title, setTitle] = useState('')
 
 
     const [imageFile, setImageFile] = useState('')
@@ -65,10 +65,11 @@ function EditProfile() {
                     userName: userName,
                     firstName: firstName,
                     lastName: lastName,
-                    email: email,
+                   // email: email,
                     phoneNumber: phoneNumber,
                     stack: stack,
-                    password: password
+                    Bio: Bio,
+                    //password: password
                 },
                 {
                     headers: {
@@ -93,18 +94,18 @@ function EditProfile() {
                     <div className="profile_pic_container">
                         <img src={`${imgPath}./img/Profile_Backgroud.png`} class="img-responsive" width="100%" />
                     </div>
-                    <div>
-                        <img src={users.profilePicture} alt="" className="profile_img" />
-
-                        <input type="file" onChange={handleImageChange} />
-                        <button onClick={handleImageUpload}>Upload Picture</button>
+                    <div className="pic_n">
+                        <img button="100px" src={users.profilePicture} alt="" className="profile_img" />
+                        <div class="upload_pic"><input type="file" onChange={handleImageChange} />
+                        <button class="pic_upload" onClick={handleImageUpload}>Upload Picture</button></div>
                     </div>
                     <div className="profile_name">
                         <h1>{users.firstName} {users.lastName}</h1>
-                        <p className="text-left">About</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, libero?
-                            Tempore nesciunt libero veritatis aperiam possimus vel animi nam enim earum
-                            laborum, ducimus beatae, tempora minus recusandae est. Voluptatum, aspernatur?</p>
+                        <input type="text" name="bio_in" class="bio_in" placeholder="Add Your Biography" id="exampleFormControlTextarea1" rows="4" 
+                title={title} onChange={(e) => setTitle(e.target.value)}/><br></br><br></br>
+                        <input type="button" name="submit_Post" class="submit_Post" value="Add Biography" placeholder="submit_Post"/>
+                        <p className="text-left">Biography</p>
+                        <p>{users.Bio}</p>
                     </div>
                     <div >
                         <h1>Edit Personal Info</h1>
@@ -119,11 +120,11 @@ function EditProfile() {
                             <div class="mb-3">
                                 <input type="email" class="form-control" id="Name" placeholder={users.userName} value={userName} onChange={(e) => setuserName(e.target.value)} />
                             </div>
+                            {/* <div class="mb-3">
+                                <input type="email" class="form-control" id="Name" placeholder={users.email}  value={email} onChange={(e) => setEmail(e.target.value)} />
+                            </div> */}
                             <div class="mb-3">
-                                <input type="email" class="form-control" id="Name" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                            </div>
-                            <div class="mb-3">
-                                <input type="email" class="form-control" id="Name" placeholder="Mobile Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+                                <input type="email" class="form-control" id="Name" placeholder={users.phoneNumber} value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
                             </div>
                             <div className="mb-3">
                                 <select id="Stack" class="form-select" placeholder="Stack" value={stack} onChange={(e) => setStack(e.target.valuer)}>
@@ -133,9 +134,9 @@ function EditProfile() {
                                     <option>UI/UX</option>
                                 </select>
                             </div>
-                            <div class="mb-3">
+                            {/* <div class="mb-3">
                                 <input type="email" class="form-control" id="Name" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                            </div>
+                            </div> */}
                             <button type="button" class="btn btn-primary" onClick={handleProfileUpdate}>Update</button>
                         </form>
                     </div>

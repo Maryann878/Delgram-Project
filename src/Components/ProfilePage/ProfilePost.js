@@ -16,6 +16,8 @@ const handleLike = async (id) => {
             })
 
         alert('Post liked succesfully');
+        localStorage.setItem('user', JSON.stringify(res.data.data))
+            window.location.reload()
 
     } catch (err) {
         console.log(err.message);
