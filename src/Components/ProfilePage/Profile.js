@@ -25,17 +25,17 @@ useEffect(() => {
                     <div className="profile_pic_container">
                         <img src={`${imgPath}./img/Profile_Backgroud.png`} class="img-responsive" width="100%" />
                     </div>
-                    <div>
-                        <img src={user.profilePicture} alt={user.firstName} className="profile_img" />
+                    <div className="Pic_A">
+                        <img src={user.profilePicture} alt={user.firstName} className="profile_img" /><br></br><br></br>
+                        <input type="text" name="bio_in" class="bio_in" placeholder="Add Your Biography"/><br></br><br></br>
+                        <input type="button" name="submit_Post" class="submit_Post" value="Add Biography" placeholder="submit_Post"/>
 
                     </div>
                     <div className="profile_name">
-                        <h1>{user.firstName}</h1>
-                        <h1>{user.lastName}</h1>
+                        <h1>{user.firstName}  {user.lastName}</h1>
+                        
                         <p className="text-left">About</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, libero?
-                            Tempore nesciunt libero veritatis aperiam possimus vel animi nam enim earum
-                            laborum, ducimus beatae, tempora minus recusandae est. Voluptatum, aspernatur?</p>
+                        <p>{user.Bio}</p>
                     </div>
                     <table class="table table-borderless">
                         <tbody>

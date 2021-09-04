@@ -23,3 +23,21 @@ h5 {
     margin: auto;
     width: 60%;
 }
+.bio_in{
+    height: 2cm;
+    width: 10cm;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid #dbdbdb;
+}
+.submit_Post{
+    width: 3cm;
+    height: 1cm;
+    background-color: lightskyblue;
+    border: white;
+    border-radius: 5px;
+    color: white;
+}
+.Pic_A{
+    margin-top: 100px;
+}
