@@ -114,10 +114,10 @@ function EditProfile() {
                                     value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" id="Name" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                                <input type="email" class="form-control" id="Name" placeholder={users.lastName} value={lastName} onChange={(e) => setLastName(e.target.value)} />
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" id="Name" placeholder="User Name" value={userName} onChange={(e) => setuserName(e.target.value)} />
+                                <input type="email" class="form-control" id="Name" placeholder={users.userName} value={userName} onChange={(e) => setuserName(e.target.value)} />
                             </div>
                             <div class="mb-3">
                                 <input type="email" class="form-control" id="Name" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />

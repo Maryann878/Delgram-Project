@@ -15,6 +15,9 @@
     border-bottom: 10px;
     background-color: white;
     border: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-top: 10px;
 }
 
 .del_logo {
@@ -25,14 +28,15 @@
 .search {
    margin-right: -20px;
    z-index: 5; 
-   background-color: white;
+   /* background-color: white; */
    
 }
 .bi-search {
-    background-color: white;
+    background: white
+
 }
 ::placeholder {
-    color: #b9b3b3;
+    /* color: #b9b3b3; */
 }
 
 .icon_thumbnail {
@@ -55,5 +59,26 @@ div > a {
     object-fit: cover;
   }
   input::placeholder {
-      padding-left: 10px;
+      padding-left: 20px;
+  }
+
+  
+input{
+    text-indent: 0px;
+  }
+  .icon{
+      margin-top: 1px;
+  }
+ /* .rounded{
+    background: rgba(196, 196, 196, 0.2);
+  }  */
+  /* span{
+    background: rgba(196, 196, 196, 0.2);
+  } */
+
+  .glass{
+    width: 30px;
+    height: 30px;
+    margin: 5px 10px;
+    background-color: white;
   }

@@ -18,20 +18,22 @@ function Navigation() {
                <div className="col-md-4 colum_nav">
                     <img src={`${imgPath}./img/del-logo.png`} alt="" className="del_logo" />
                </div>
-               <div className="col-md-4 colum_nav">
-                    <div className="input-group rounded">
-                        <span className="search my-auto" id="search-addon">
+               <div className="col-md-4 colum_nav ">
+                    <div className="input-group  rounded ">
+                        <span className="search my-auto " id="search-addon">
                             <i className="bi bi-search"></i>
+                            {/* <Link><img src={`${imgPath}./img/search.png`} alt="" className="glass" /></Link> */}
+
                         </span>
-                        <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />       
+                        <input type="search" className="form-control " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />       
                     </div>
                </div>
                <div className="col-md-4 colum_nav d-flex flex-row">
-               <Link to="/home"><img src={`${imgPath}./img/home_icon.png`} alt="" className="icon_thumbnail" /></Link>
-                           <Link><img src={`${imgPath}./img/vector_icon.svg`} alt="" className="icon_thumbnail" /></Link>
+               <Link to="/home"><img src={`${imgPath}./img/home_icon.png`} alt="" className="icon_thumbnail " /></Link>
+                           <Link><img src={`${imgPath}./img/Message_Button.png`} alt="" className="icon_thumbnail " /></Link>
                            <Link><img src={`${imgPath}./img/notification_icon.png`} alt="" className="icon_thumbnail" /></Link>
                            <Link><img src={`${imgPath}./img/add-story.png`} alt="" className="icon_thumbnail" /></Link>
-                           <Link to= "/Profile"><img  src={user.profilePicture} alt="" className="Profile_thumbnail" /></Link>
+                           <Link to= "/Profile"><img  src={user.profilePicture} alt="" className="Profile_thumbnail icon" /></Link>
                            <Link to= "/"><input type="button" className="out" value="Log Out" placeholder="Log Out"/></Link>
                </div>
                   

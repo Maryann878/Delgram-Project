@@ -54,40 +54,40 @@ function SignUp() {
             <div className="row gx-3 section">
                 <div className="col-md-6 ">
                 <div className="container Sign_Up ">
-                    <div>
+                    <div className="logo">
                         <img src={`${imgPath}./img/del-logo.png`} alt="" className="img_logo" />
                     </div>
                     <div className="centred">
                     <form >
-                        <div class="mb-3">
+                        <div class="mb-3 input">
                              <input type="email" class="form-control" 
                              id="Name" placeholder="First Name" 
                              value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 input">
                              <input type="email" class="form-control"
                               id="Name" placeholder="Last Name" 
                               value={lastName} onChange={(e) => setLastName(e.target.value)}/>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 input">
                              <input type="email" class="form-control" 
                              id="Name" placeholder="Email"
                              value={email} onChange={(e) => setEmail(e.target.value)}/>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 input">
                              <input type="email" class="form-control" id="Name" placeholder="UserName"
                               value={userName} onChange={(e) => setuserName(e.target.value)}/>
                         </div>
 
-                        <div class="mb-3">
-                        <div class="row  align-items-center">
+                        <div class="mb-3 input">
+                        <div class="row  align-items-center input">
                             <div class="col-6">
                                 <input type="text" class="form-control" 
                                 id="Name" placeholder="Mobile Number"
                                 value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
                             </div>
-                            <div className="col-6">
+                            <div className="col-6 input">
                                 <select id="Stack" class="form-select" value={stack} onChange={(e) => setStack(e.target.value)} >
                                     <option >FrontEnd</option>
                                     <option >Backend</option>

@@ -66,9 +66,14 @@ function Feeds() {
         <div className="col-md-10">
           <h6>Make Gram</h6>
           <form>
-            <div class="form-group">
+{/* 
+          <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+  
+</div> */}
+            <div class="form-group"  >
               <textarea class="form-control"
-                id="exampleFormControlTextarea1" rows="4"
+                id="exampleFormControlTextarea1" rows="4" 
                 title={title} onChange={(e) => setTitle(e.target.value)}></textarea>
             </div>
             <div className=" d-flex flex-row icon">

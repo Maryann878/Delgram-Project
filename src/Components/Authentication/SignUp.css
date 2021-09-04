@@ -51,3 +51,11 @@
 .get{
     text-decoration: none;
 }
+
+.logo{
+    margin-bottom: 15px;
+}
+
+input{
+    text-indent: -10px;
+  }
